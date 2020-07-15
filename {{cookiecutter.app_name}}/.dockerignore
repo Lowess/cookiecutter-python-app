@@ -1,0 +1,31 @@
+# Docker .dockerignore
+./docker/*.yml
+Dockerfile
+
+# Common python .dockerignore
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+pip-log.txt
+pip-delete-this-directory.txt
+pytest.ini
+.tox
+./tests/*
+./docs/*
+./htmlcov/*
+
+# Git .dockerignore
+.git
+.gitignore
+.pre-commit-config.yaml
+README.md
+# CI/CD .dockerignore
+.drone.yml
+
+# VIm .dockerignore
+*.swp
+*/*.swp
+*/*/*.swp
+*/*/*/*.swp
+*/*/*/*/*.swp

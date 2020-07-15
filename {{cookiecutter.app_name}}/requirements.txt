@@ -1,0 +1,2 @@
+dynaconf==2.2.3
+prometheus-client==0.7.1

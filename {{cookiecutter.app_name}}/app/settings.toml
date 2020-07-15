@@ -1,0 +1,24 @@
+### settings.toml  configuration used by dynaconf
+### > https://dynaconf.readthedocs.io/en/latest/
+
+[default]
+config_prettyprint = true
+
+### Logging
+[default.logging]
+version = 1
+disable_existing_loggers = true
+formatters.javastyle.format = "%(asctime)s,%(msecs)03d %(levelname)8s %(name)s %(filename)s:%(lineno)d - %(message)s"
+formatters.javastyle.datefmt = "%Y-%m-%d %H:%M:%S"
+handlers.console.class = "logging.StreamHandler"
+handlers.console.formatter = "javastyle"
+handlers.console.level = "DEBUG"
+handlers.console.stream = "ext://sys.stdout"
+root.handlers = ["console"]
+root.level = "INFO"
+# First party loggers
+loggers.app.level = "INFO"
+# Third party loggers
+loggers.botocore.level = "ERROR"
+loggers.urllib3.level = "ERROR"
+loggers.s3transfert.level = "ERROR"

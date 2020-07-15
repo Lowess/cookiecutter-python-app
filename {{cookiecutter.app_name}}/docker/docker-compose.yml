@@ -1,0 +1,26 @@
+---
+version: "3"
+services:
+  {{ cookiecutter.app_name }}:
+    image: {{ cookiecutter.app_name }}
+    build:
+      context: ../
+    user: root
+    networks:
+      - tapas
+    external_links:
+      - docker_kafka_1:kafka
+    environment:
+      # Dynaconf settings
+      - ENV_FOR_DYNACONF=development
+    volumes:
+      - ../app:/app
+      - ${HOME}/.aws:/root/.aws:ro
+    ports:
+      - 8000:8000 # Prometheus server
+    privileged: true
+
+networks:
+  tapas:
+    external:
+      name: tapas
