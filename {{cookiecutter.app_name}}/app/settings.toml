@@ -1,6 +1,3 @@
-### settings.toml  configuration used by dynaconf
-### > https://dynaconf.readthedocs.io/en/latest/
-
 [default]
 config_prettyprint = true
 
@@ -18,7 +15,19 @@ root.handlers = ["console"]
 root.level = "INFO"
 # First party loggers
 loggers.app.level = "INFO"
+loggers.konnector.level = "INFO"
 # Third party loggers
 loggers.botocore.level = "ERROR"
 loggers.urllib3.level = "ERROR"
 loggers.s3transfert.level = "ERROR"
+
+### settings.toml [development] configuration used by unittests
+[development]
+logging__loggers__app__level = "DEBUG"
+# Nice colors in dev only (pip install colorlog)
+"logging__formatters__colored__()" = "colorlog.ColoredFormatter"
+logging__formatters__colored__format = "%(cyan)s%(asctime)s,%(msecs)03d%(reset)s %(bold_yellow)s %(levelname)8s%(reset)s %(purple)s%(filename)s:%(lineno)d%(reset)s - %(message_log_color)s%(message)s"
+logging__formatters__colored__log_colors = { DEBUG = "green", INFO = "white", WARNING =  "yellow", ERROR = "red", CRITICAL = "red,bg_white" }
+logging__formatters__colored__secondary_log_colors__message = { DEBUG = "green", INFO = "white", WARNING =  "yellow", ERROR = "red", CRITICAL = "red,bg_white" }
+logging__handlers__console__formatter = "colored"
+

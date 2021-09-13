@@ -6,10 +6,6 @@ services:
     build:
       context: ../
     user: root
-    networks:
-      - tapas
-    external_links:
-      - docker_kafka_1:kafka
     environment:
       # Dynaconf settings
       - ENV_FOR_DYNACONF=development
@@ -19,8 +15,3 @@ services:
     ports:
       - 8000:8000 # Prometheus server
     privileged: true
-
-networks:
-  tapas:
-    external:
-      name: tapas

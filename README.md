@@ -5,7 +5,7 @@
 * Invoke cookiecutter to create an application template
 
 ```bash
-cookiecutter https://github.com/Lowess/cookiecutter-python-library
+cookiecutter https://github.com/Lowess/cookiecutter-python-app
 ```
 
 * Install dependencies
