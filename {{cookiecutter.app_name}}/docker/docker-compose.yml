@@ -5,6 +5,8 @@ services:
     image: {{ cookiecutter.app_name }}
     build:
       context: ../
+      args:
+        PIP_EXTRA_DEV_DEPS: colorlog
     user: root
     environment:
       # Dynaconf settings

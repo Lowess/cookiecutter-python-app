@@ -9,7 +9,7 @@ from dynaconf import LazySettings
 
 # Configure Dynaconf
 settings = LazySettings(
-    ENVVAR_PREFIX_FOR_DYNACONF="APP_TRANSCODER",
+    ENVVAR_PREFIX_FOR_DYNACONF="APP_{{ cookiecutter.app_name | upper }}",
     ENVVAR_FOR_DYNACONF="APP_SETTINGS",
 )
 

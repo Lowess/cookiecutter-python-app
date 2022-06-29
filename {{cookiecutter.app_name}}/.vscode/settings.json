@@ -5,7 +5,6 @@
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "~/.pyenv/shims/black",
   "python.sortImports.args": [
-    "-rc",
     "--settings-path",
     "${workspaceFolder}",
   ],
@@ -15,11 +14,11 @@
       "source.organizeImports": true
     }
   },
-  "python.pythonPath": "~/.pyenv/versions/{{ cookiecutter.app_name }}/bin/python",
   "python.venvPath": "~/.pyenv/shims",
   "editor.formatOnPaste": false,
   "editor.formatOnSave": true,
   "editor.formatOnSaveTimeout": 5000,
   "editor.codeActionsOnSaveTimeout": 5000,
   "restructuredtext.confPath": "${workspaceFolder}/docs/sphinx",
+  "python.analysis.extraPaths": []
 }

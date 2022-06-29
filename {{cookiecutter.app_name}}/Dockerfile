@@ -5,6 +5,9 @@
 FROM 778129680386.dkr.ecr.us-east-1.amazonaws.com/gumgum/ops/python-builder:3.7 AS builder
 LABEL maintainer="{{ cookiecutter.author_fullname }} <{{ cookiecutter.author_email }}>"
 
+ARG PIP_EXTRA_DEV_DEPS
+ENV PIP_EXTRA_DEV_DEPS $PIP_EXTRA_DEV_DEPS
+
 ENV PYTHON_VERSION 3.7
 ENV PYTHONUSERBASE /venv
 ENV PYTHONPATH /venv/lib/python${PYTHON_VERSION}}/site-packages
@@ -22,7 +25,8 @@ COPY ./docker/pip.config /etc/pip.conf
 
 # Install app requirements in virtualenv
 RUN mkdir /venv \
-  && pip3 install --ignore-installed --user -U pyopenssl cryptography certifi idna ndg-httpsclient pyasn1 singledispatch \
+  && pip3 install -I -U  pip \
+  && pip3 install -I -U pyopenssl cryptography certifi idna ndg-httpsclient pyasn1 singledispatch ${PIP_EXTRA_DEV_DEPS}\
   && pip3 install --user -r /src/requirements.txt
 
 # Copy the source code into the container
@@ -41,7 +45,6 @@ ENV PYTHONPATH /:/venv/lib/python${PYTHON_VERSION}/site-packages
 ENV PYTHONUNBUFFERED=1
 ENV PATH $PATH:/venv/bin
 
-ENV AWS_ACCOUNT=gumgum
 ENV AWS_DEFAULT_REGION=us-east-1
 
 # RUN apt-get update \

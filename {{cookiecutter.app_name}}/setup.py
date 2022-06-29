@@ -5,7 +5,7 @@ import sys
 
 # Setup requirements
 try:
-    from setuptools import setup, find_packages
+    from setuptools import find_packages, setup
     from setuptools.command.install import install
 except ImportError:
     print(
@@ -17,24 +17,23 @@ except ImportError:
 EXTRAS_REQUIRE = {
     "docs": ["sphinx<4.0.0", "sphinxcontrib.mermaid==0.6.1", "sphinx-rtd-theme>=0.4.3"],
     "tests": [
-        "tox",
-        "black>=20.8b1,<21",
-        "click>7.0",
-        "coverage-badge>=1.0.1",
-        "coverage>=5.0.3",
-        "flake8>=3.7.9",
-        "isort>=5.6.0,<5.7.0",
-        "moto==1.3.16.dev122",  # See https://github.com/spulec/moto/pull/3466
-        "pytest-cov>=2.8.1",
-        "pytest-datafiles>=2.0",
-        "pytest-env>=0.6.2",
-        "pytest-logger>=0.5.1",
-        "pytest-mock>=2.0.0",
-        "pytest-runner>=5.2",
-        "pytest-xdist>=1.31.0",
-        "pytest-lazy-fixture>=0.6.3,<0.7",
-        "pytest-sugar>=0.9.4",
-        "pytest>=5.2.2",
+        "tox>=3.25.0,<4",
+        "black>=22.6.0,<23",
+        "coverage-badge>=1.1.0",
+        "coverage>=6.4.1",
+        "flake8>=4.0.1,<5",
+        "isort>=5.10.1,<6",
+        "moto>=3.1.16,<4",
+        "pytest-cov>=3.0.0,<4",
+        "pytest-datafiles>=2.0.1,<3",
+        "pytest-env>=0.6.2,<1",
+        "pytest-logger,=0.5.1,<1",
+        "pytest-mock>=3.8.1,<4",
+        "pytest-runner>=6.0.0,<7",
+        "pytest-xdist>=2.5.0<3",
+        "pytest-lazy-fixture>=0.6.3,<1",
+        "pytest-sugar>=0.9.4,<1",
+        "pytest>=7.1.2,<8",
     ],
 }
 
